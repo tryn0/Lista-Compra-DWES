@@ -6,6 +6,8 @@ que según la opción elegida:
 - [] Insertar
 - [] Modificar
 - [] Eliminar  
+
+
 Cargará un archivo u otro, por ahora solo exites código  
 para mostrar e insertar, pero modificar y eliminar  
 solo tendran que cargar la lista de la página principal,  
