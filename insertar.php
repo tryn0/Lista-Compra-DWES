@@ -70,7 +70,7 @@
 				}
 				
 				?>
-				<form method="POST" action="index.html">
+				<form method="POST" action="compra.php">
 					<input type="hidden" name="objetoIntroducido" value="<?php echo implode(",",$todosLosObjetos2);?>">
 					<input type="submit" name="volver" value="Volver">
 				</form>
