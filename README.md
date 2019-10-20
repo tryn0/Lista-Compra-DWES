@@ -1,5 +1,5 @@
 # Lista-Compra-DWES
-Trabajo DWES-2º DAW-Lista de Compra
+Trabajo DWES-2º DAW-Lista de Compra  
 Este proyecto contiene la página principal del trabajo compra.php  
 que según la opción elegida:  
 - [] Mostrar lista
