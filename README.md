@@ -2,10 +2,10 @@
 Trabajo DWES-2º DAW-Lista de Compra
 Este proyecto contiene la página principal del trabajo compra.php  
 que según la opción elegida:  
-[] Mostrar lista
-[] Insertar
-[] Modificar
-[] Eliminar  
+- [] Mostrar lista
+- [] Insertar
+- [] Modificar
+- [] Eliminar  
 Cargará un archivo u otro, por ahora solo exites código  
 para mostrar e insertar, pero modificar y eliminar  
 solo tendran que cargar la lista de la página principal,  
@@ -16,7 +16,7 @@ con un hidden esa lista a la página principal.
 Y la opción de eliminar parecida, le pasa esa lista a eliminar.php  
 y aun nosé cómo mostrarlo pero al elegir alguno, ese objeto   
 es eliminado de la lista y le pasa la nueva lista a la página principal y ya.  
-Para facilitar este trabajo tengo que guardar las cosas en una lista de listas.
+Para facilitar este trabajo tengo que guardar las cosas en una lista de listas.  
 Por ejemplo: 
 arrayDeArrays{
 	kiwi{2,0.50},
