@@ -8,7 +8,7 @@ que según la opción elegida:
 - [] Eliminar  
 
 
-Cargará un archivo u otro, por ahora solo exites código  
+Cargará un archivo u otro, por ahora solo exite código  
 para mostrar e insertar, pero modificar y eliminar  
 solo tendran que cargar la lista de la página principal,  
 en la opción de modificar aun tengo que pensar cómo mostrarlo  
