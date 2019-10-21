@@ -53,22 +53,23 @@
 				<?php
 			}else{
 				if(empty($_POST['listaInsertar'])){
-
-					$arrayObjetos[] = $_POST['nombreInsertar'];
-					$arrayObjetos[] = $_POST['cantidadInsertar'];
-					$arrayObjetos[] = $_POST['precioInsertar'];
-					
+					if($_POST['nombreInsertar'] != "" && $_POST['cantidadInsertar'] != "" && $_POST['precioInsertar'] != ""){
+						$arrayObjetos[] = $_POST['nombreInsertar'];
+						$arrayObjetos[] = $_POST['cantidadInsertar'];
+						$arrayObjetos[] = $_POST['precioInsertar'];
+						print "Ha insertado:<br>";
+						print 'Ha comprado '.$arrayObjetos[1].' '.$arrayObjetos[0].' a '.$arrayObjetos[2].'&euro; cada unidad.';
+					}else{
+						$arrayObjetos = array();
+						print 'No ha introducido nombre/cantidad/precio correctamente.';
+					}
 				}
-
-				print "Ha insertado:<br>";
-				print 'Ha comprado '.$arrayObjetos[1].' '.$arrayObjetos[0].' a '.$arrayObjetos[2].'&euro; cada unidad.';
 
 				if(!empty($_POST['objetosAnteriores'])){
-					$todosLosObjetos2 = array_merge( (explode(',', $_POST['objetosAnteriores'])),$arrayObjetos );
+					$todosLosObjetos2 = array_merge((explode(',', $_POST['objetosAnteriores'])),$arrayObjetos );
 				}else{
 					$todosLosObjetos2 = $arrayObjetos;
-				}
-				
+				}				
 				?>
 				<form method="POST" action="compra.php">
 					<input type="hidden" name="objetoIntroducido" value="<?php echo implode(",",$todosLosObjetos2);?>">

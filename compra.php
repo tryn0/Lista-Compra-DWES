@@ -13,26 +13,26 @@
 			switch ($elegido) {
 				case 'mostrar':
 					include 'mostrar.php';
-					
 					break;
+
 				case 'insertar':
 					include 'insertar.php';
-
 					break;
+
 				case 'modificar':
-
-					print "modificando";
+					//include 'modificar.php';
 					break;
-				case 'eliminar':
 
-					print "eliminando";
+				case 'eliminar':
+					include 'eliminar.php';
+					
 					break;
 			}
 
 		}else{
 		?>
 		<form name="opciones" method="POST" >
-			Elige qué quieres hacer:<br>
+			Qué quiere hacer:<br>
 			<table>
 				<tr>
 					<td>Mostrar lista</td>
@@ -52,7 +52,16 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="hidden" name="todosLosObjetos" value="<?php if(!empty($_POST['objetoIntroducido'])){echo $_POST['objetoIntroducido'];}elseif(!empty($_POST['volverPrincipio'])){echo $_POST['volverPrincipio'];}elseif(!empty($_POST['todosLosObjetos'])){echo $_POST['todosLosObjetos'];} ?>">
+						<input type="hidden" name="todosLosObjetos" value="<?php 
+																				if(!empty($_POST['objetoIntroducido'])){
+																					echo $_POST['objetoIntroducido'];
+																				}elseif(!empty($_POST['volverPrincipio'])){
+																					echo $_POST['volverPrincipio'];
+																				}elseif(!empty($_POST['todosLosObjetos'])){
+																					echo $_POST['todosLosObjetos'];
+																				}elseif(!empty($_POST['listaModificada'])){
+																					echo $_POST['listaModificada'];
+																				} ?>">
 						<input type="submit" name="enviar" value="Seleccionar">
 					</td>
 				</tr>
@@ -70,6 +79,10 @@
 			if(!empty($_POST['volverPrincipio'])){
 				var_dump($_POST['volverPrincipio']);
 				print 'vienes de la opcion mostrar, volverPrincipio';
+			}
+			if(!empty($_POST['listaModificada'])){
+				var_dump($_POST['listaModificada']);
+				print "vienes de la opcion modificar, listaModificada";
 			}
 		}
 		?>
