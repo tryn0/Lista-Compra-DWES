@@ -4,7 +4,7 @@ Este proyecto contiene la página principal del trabajo compra.php
 que según la opción elegida:  
 - [x] Mostrar lista
 - [x] Insertar
-- [] Modificar
+- [ ] Modificar
 - [x] Eliminar  
 
 
