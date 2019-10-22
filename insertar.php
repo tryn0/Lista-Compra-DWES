@@ -6,15 +6,11 @@
 	</head>
 	<body>
 		<?php
-			if($_POST['todosLosObjetos'] != null){
-				var_dump($_POST['todosLosObjetos']);
-			}
+			//Controlo si ya traía objetos antiguos
 			if(!empty($_POST['todosLosObjetos'])){
-				print 'todosLosObjetos no está vacía.';
 				$objetos = explode(',', $_POST['todosLosObjetos']);
-			}else{
-				print 'todosLosObjetos está vacía.';
 			}
+			//Controlo si he pulsado enviarInsertar, nombreInsertar, cantidadInsertar y precioInsertar estén vacíos
 			if(!isset($_POST['enviarInsertar']) && empty($_POST['nombreInsertar']) && empty($_POST['cantidadInsertar']) && empty($_POST['precioInsertar'])){
 				
 				?>
@@ -34,12 +30,9 @@
 								<input type="number" name="precioInsertar" min="0" step=".01" placeholder="Precio unitario del articulo">
 								<?php
 								if(!empty($objetos)){
-									print "objetos NO esta vacia";
 									?>
 									<input type="hidden" name="objetosAnteriores" value="<?php echo implode(',', $objetos);?>">
 									<?php
-								}else{
-									print "objetos SI esta vacia";
 								}
 								?>
 								<input type="hidden" name="listaInsertar" value="<?php echo implode(",",$arrayObjetos);?>">
@@ -51,28 +44,40 @@
 					</table>
 				</form>
 				<?php
-			}else{
+			}//Sino lo están controlo si la lista de objetos está vacía, y si se ha introducido algún articulo
+			elseif(isset($_POST['enviarInsertar']) && !empty($_POST['nombreInsertar']) && !empty($_POST['nombreInsertar']) != "" && $_POST['cantidadInsertar'] > 0 && !empty($_POST['cantidadInsertar']) && $_POST['precioInsertar'] > 0&& !empty($_POST['precioInsertar'])){
 				if(empty($_POST['listaInsertar'])){
 					if($_POST['nombreInsertar'] != "" && $_POST['cantidadInsertar'] != "" && $_POST['precioInsertar'] != ""){
+						//Y lo añado a la lista arrayObjetos los datos introducidos
 						$arrayObjetos[] = $_POST['nombreInsertar'];
 						$arrayObjetos[] = $_POST['cantidadInsertar'];
 						$arrayObjetos[] = $_POST['precioInsertar'];
-						print "Ha insertado:<br>";
+						//Y los muestro
 						print 'Ha comprado '.$arrayObjetos[1].' '.$arrayObjetos[0].' a '.$arrayObjetos[2].'&euro; cada unidad.';
 					}else{
+						//Sino creo una lista y le digo que no ha introducido un dato correcto.
 						$arrayObjetos = array();
 						print 'No ha introducido nombre/cantidad/precio correctamente.';
 					}
 				}
-
+				//Si hay articulos en la lista, los fusiono para que se añada el nuevo articulo a la lista de articulos
 				if(!empty($_POST['objetosAnteriores'])){
 					$todosLosObjetos2 = array_merge((explode(',', $_POST['objetosAnteriores'])),$arrayObjetos );
 				}else{
+					//Sino hay articulos antiguos, cambio de nombre la lista
 					$todosLosObjetos2 = $arrayObjetos;
 				}				
 				?>
 				<form method="POST" action="compra.php">
 					<input type="hidden" name="objetoIntroducido" value="<?php echo implode(",",$todosLosObjetos2);?>">
+					<input type="submit" name="volver" value="Volver">
+				</form>
+				<?php
+			}else{
+				print 'No ha introduco los datos del artículo correctamente.';
+				?>
+				<form method="POST" action="compra.php">
+					<input type="hidden" name="objetoIntroducido" value="<?php echo $_POST['objetosAnteriores'];?>">
 					<input type="submit" name="volver" value="Volver">
 				</form>
 				<?php

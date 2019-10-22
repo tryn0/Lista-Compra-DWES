@@ -6,10 +6,10 @@
 	</head>
 	<body>
 		<?php
-		
+		//Verifico si se ha pulsado enviar y he elegido algun checkbox
 		if(isset($_POST['enviar']) && isset($_POST['opcion-compra'])){
 			$elegido = $_POST['opcion-compra'];
-
+			//Las distintas opciones y sus respectivos .php
 			switch ($elegido) {
 				case 'mostrar':
 					include 'mostrar.php';
@@ -20,19 +20,17 @@
 					break;
 
 				case 'modificar':
-					//include 'modificar.php';
+					include 'modificar.php';
 					break;
 
 				case 'eliminar':
 					include 'eliminar.php';
-					
 					break;
 			}
-
 		}else{
 		?>
 		<form name="opciones" method="POST" >
-			Qué quiere hacer:<br>
+			Qué desea hacer:<br>
 			<table>
 				<tr>
 					<td>Mostrar lista</td>
@@ -52,15 +50,19 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="hidden" name="todosLosObjetos" value="<?php 
+						<input type="hidden" name="todosLosObjetos" value="<?php //Aquí controlo cuál de las listas de objetos carga, dependiendo de dónde vengas carga una u otra
 																				if(!empty($_POST['objetoIntroducido'])){
 																					echo $_POST['objetoIntroducido'];
 																				}elseif(!empty($_POST['volverPrincipio'])){
 																					echo $_POST['volverPrincipio'];
 																				}elseif(!empty($_POST['todosLosObjetos'])){
 																					echo $_POST['todosLosObjetos'];
-																				}elseif(!empty($_POST['listaModificada'])){
-																					echo $_POST['listaModificada'];
+																				}elseif(!empty($_POST['listaModificadaFinal'])){
+																					echo $_POST['listaModificadaFinal'];
+																				}elseif(!empty($_POST['listaEliminada'])){
+																					echo $_POST['listaEliminada'];
+																				}elseif(!empty($_POST['listaModificadaNO'])){
+																					echo $_POST['listaModificadaNO'];
 																				} ?>">
 						<input type="submit" name="enviar" value="Seleccionar">
 					</td>
@@ -68,22 +70,6 @@
 			</table>
 		</form>
 		<?php
-			if(!empty($_POST['objetoIntroducido'])){
-				var_dump($_POST['objetoIntroducido']);
-				print "vienes de la opcion insertar, objetoIntroducido";
-			}
-			if(!empty($_POST['todosLosObjetos'])){
-				var_dump($_POST['todosLosObjetos']);
-				print 'vienes de ninguna opcion, le diste a seleccionar sin haber elegido NADA, todosLosObjetos';
-			}
-			if(!empty($_POST['volverPrincipio'])){
-				var_dump($_POST['volverPrincipio']);
-				print 'vienes de la opcion mostrar, volverPrincipio';
-			}
-			if(!empty($_POST['listaModificada'])){
-				var_dump($_POST['listaModificada']);
-				print "vienes de la opcion modificar, listaModificada";
-			}
 		}
 		?>
 	</body>
