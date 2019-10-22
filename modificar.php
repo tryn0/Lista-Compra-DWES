@@ -49,7 +49,6 @@
 			$listaObjetos = explode(',',$_POST['objetosAnteriores']);//Este elseif es el buscador del articulo en la lista de objetos que le entra desde la página principal
 			$posicion = array_search($_POST['buscarNombre'],$listaObjetos);//Obtengo la posicion del articulo a buscar
 			if(is_numeric($posicion)){//Si está en la lista devuelve un entero, que significa que está en la lista
-				print $_POST['buscarNombre'].' está en la posición '.$posicion.' de la lista y ha sido eliminado junto a sus datos.<br>';
 				$articulo = $listaObjetos[$posicion];
 				$cantidad = $listaObjetos[$posicion+1];
 				$precio = $listaObjetos[$posicion+2];

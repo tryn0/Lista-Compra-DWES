@@ -22,7 +22,7 @@
 			</tr>
 			<?php
 			//Paso el string a lista para recorrearla e imprimir los datos, cada 3 datos salta a otro, ya que 3 objetos en la lista son 1 articulo y sus datos.
-			print "Hay cosas en la cesta todosLosObjetos: <br>";
+			print "Hay cosas en la cesta: <br>";
 			$objetos = explode(",", $_POST['todosLosObjetos']);
 			$contador = 0;
 			$contador1 = 0;

@@ -17,7 +17,7 @@
 			if(!is_numeric($posicion)){
 				print 'No se encontró el objeto en la lista';
 			}else{
-				print $_POST['buscarNombre'].' está en la posición '.$posicion.' de la lista y ha sido eliminado junto a sus datos.<br>';
+				print $_POST['buscarNombre'].' ha sido eliminado junto a sus datos.<br>';
 				for($num = 0; $num <= 2; $num++){
 					unset($listaObjetos[$posicion+$num]);
 				}
